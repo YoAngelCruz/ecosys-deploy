@@ -33,6 +33,7 @@ services:
 
   auth:
     container_name: token-service
+    restart: always
     image: yoangelcruz/token-service:0.2
     environment:
       - JAVA_OPTS=-Xms256M -Xmx256M -DDB_HOST=BD-Postgres:5432/ecosys -DDB_USERNAME=admin -DDB_PASSWORD=passoword
@@ -43,6 +44,7 @@ services:
 
   excel:
     container_name: excel-service
+    restart: always
     image: yoangelcruz/excel-service:0.2
     environment:
       - JAVA_OPTS=-Xms256M -Xmx256M -DDB_HOST=BD-Postgres:5432/ecosys -DDB_USERNAME=admin -DDB_PASSWORD=passoword
@@ -53,13 +55,16 @@ services:
 
   ecosysfront:
     container_name: front-service
-    image: ecosys-front:0.1
+    restart: always
+    image: yoangelcruz/ecosys-front:1.0 
 
   proxy_nginx:
-      build:
-        context: ./nginx
-        dockerfile: Dockerfile
-      ports:
-        - 443:443
-      volumes:
-        - ./nginx/conf.d/:/etc/nginx/conf.d/
+    container_name: proxy-nginx
+    restart: always
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - 443:443
+    volumes:
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
