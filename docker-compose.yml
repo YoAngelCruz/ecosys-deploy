@@ -1,0 +1,65 @@
+services:
+  #! postgres service
+  postgres-service:
+    image: postgres:12.5
+    container_name: BD-Postgres
+    restart: always
+    ports: 
+      - 5432:5432
+  
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - ./volume/postgres:/var/lib/postgresql/data
+      - ./scripts:/docker-entrypoint-initdb.d/
+
+  pdAdmin:
+    image: dpage/pgadmin4
+    container_name: pgAdmin4
+    restart: always
+    depends_on:
+      - postgres-service
+    ports:
+      - 5081:80
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+    volumes:
+      - ./volume/pgadmin:/var/lib/pgadmin
+      - ./volume/pgadmin:/certs/server.cert
+      - ./volume/pgadmin:/certs/server.key
+      - ./volume/pgadmin:/pgadmin4/servers.json
+
+  auth:
+    container_name: token-service
+    image: yoangelcruz/token-service:0.2
+    environment:
+      - JAVA_OPTS=-Xms256M -Xmx256M -DDB_HOST=BD-Postgres:5432/ecosys -DDB_USERNAME=admin -DDB_PASSWORD=passoword
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres-service
+
+  excel:
+    container_name: excel-service
+    image: yoangelcruz/excel-service:0.2
+    environment:
+      - JAVA_OPTS=-Xms256M -Xmx256M -DDB_HOST=BD-Postgres:5432/ecosys -DDB_USERNAME=admin -DDB_PASSWORD=passoword
+    ports:
+      - 8081:8081
+    depends_on:
+      - postgres-service
+
+  ecosysfront:
+    container_name: front-service
+    image: ecosys-front:0.1
+
+  proxy_nginx:
+      build:
+        context: ./nginx
+        dockerfile: Dockerfile
+      ports:
+        - 443:443
+      volumes:
+        - ./nginx/conf.d/:/etc/nginx/conf.d/
