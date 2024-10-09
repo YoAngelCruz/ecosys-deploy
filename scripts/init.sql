@@ -34,34 +34,34 @@ CREATE TABLE manifiestos (
 
 CREATE TABLE clientes (
     id SERIAL PRIMARY KEY,
-    cliente VARCHAR(-1) NOT NULL,
-    clave_sedema VARCHAR(100) NOT NULL,
-    domicilio VARCHAR(100) NOT NULL,
-    telefono VARCHAR(15),
-    ciudad VARCHAR(20),
+    cliente VARCHAR(255) NOT NULL,
+    clave_sedema VARCHAR(255) NOT NULL,
+    domicilio VARCHAR(255) NOT NULL,
+    telefono VARCHAR(255),
+    ciudad VARCHAR(255),
     cp INT NOT NULL
 );
 
 CREATE TABLE destino (
     id SERIAL PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    clave_sedema VARCHAR(100) NOT NULL,
-    direccion VARCHAR(100) NOT NULL,
-    telefono VARCHAR(15),
-    ciudad VARCHAR(20),
+    nombre VARCHAR(255) NOT NULL,
+    clave_sedema VARCHAR(255) NOT NULL,
+    direccion VARCHAR(255) NOT NULL,
+    telefono VARCHAR(255),
+    ciudad VARCHAR(255),
     cp INT NOT NULL
 );
 
 CREATE TABLE operadores (
     id SERIAL PRIMARY KEY,
-    nombre VARCHAR(75) NOT NULL,
-    licencia VARCHAR(20) NOT NULL
+    nombre VARCHAR(255) NOT NULL,
+    licencia VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE folios(
     id SERIAL PRIMARY KEY,
-    empresa VARCHAR(100) NOT NULL,
-    folio VARCHAR(20) NOT NULL
+    empresa VARCHAR(255) NOT NULL,
+    folio VARCHAR(255) NOT NULL
 );
 
 INSERT INTO clientes (cliente, clave_sedema, domicilio, telefono, ciudad, cp) VALUES ('ADMINISTRACION  DEL SISTEMA PORTUARIO NACIONAL VERACRUZ, S.A. DE C.V.', 'SEDEMA/GRME-API931215CSA-19/435', 'AV. MARINA MERCANTE No. 210, SEPTIMO PISO, COL. CENTRO', 'NULL', 'VERACRUZ,VER.', 91700);
