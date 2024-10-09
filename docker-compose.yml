@@ -52,7 +52,7 @@ services:
   ecosysfront:
     container_name: front-service
     restart: always
-    image: yoangelcruz/ecosys-front:1.0 
+    image: yoangelcruz/ecosys-front:0.3 
 
   proxy_nginx:
     container_name: proxy-nginx
