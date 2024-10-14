@@ -63,6 +63,20 @@ CREATE TABLE folios(
     empresa VARCHAR(255) NOT NULL,
     folio VARCHAR(255) NOT NULL
 );
+CREATE TABLE transportes(
+    id SERIAL PRIMARY KEY,
+    placas VARCHAR(10) NOT NULL,
+    num_serie VARCHAR(25),
+    marca_modelo VARCHAR(100) NOT NULL,
+    tipo VARCHAR(50),
+    carga VARCHAR (15)
+);
+
+CREATE TABLE residuos(
+    id SERIAL PRIMARY KEY,
+    clave VARCHAR(25) NOT NULL,
+    residuos VARCHAR(255) NOT NULL,
+);
 
 INSERT INTO clientes (cliente, clave_sedema, domicilio, telefono, ciudad, cp) VALUES ('ADMINISTRACION  DEL SISTEMA PORTUARIO NACIONAL VERACRUZ, S.A. DE C.V.', 'SEDEMA/GRME-API931215CSA-19/435', 'AV. MARINA MERCANTE No. 210, SEPTIMO PISO, COL. CENTRO', 'NULL', 'VERACRUZ,VER.', 91700);
 INSERT INTO clientes (cliente, clave_sedema, domicilio, telefono, ciudad, cp) VALUES ('AGROINDUSTRIAS DE CORDOBA S.A DE C.V GRANJA AVICOLA EL RESPLANDOR II', 'SEDEMA/GRME-ACO031110RIA-2023/242', 'KM 87 CAMINO DE TERRACERIA RESPLANDOR-CASAS BLANCAS EJIDO LA CAMPANA', 'NULL', 'TIERRA BLANCA VERACRUZ', 95209);
@@ -184,3 +198,64 @@ INSERT INTO folios(empresa, folio) VALUES ('TA 2000 S.A DE C.V', '1130-2024');
 INSERT INTO folios(empresa, folio) VALUES ('TALLERES PEBSA S.A. DE C.V.', '7-2024');
 INSERT INTO folios(empresa, folio) VALUES ('TENERIA COMPANY S.A DE C.V (ORIZABA)', '2-2024');
 INSERT INTO folios(empresa, folio) VALUES ('TENERIA COMPANY S.A DE C.V (IXTACZOQUITLAN)', '51-2024');
+
+INSERT INTO transportes(placas, num_serie, marca_modelo, tipo, carga) VALUES ('XS5669A', '387HC16X61M559085', 'CHRYSLER/2001', 'PICKUP', '750 KG');
+INSERT INTO transportes(placas, num_serie, marca_modelo, tipo, carga) VALUES ('XJ5291B', '93C143VA0GC423655', 'CHEVROLET GM/2016', 'PICKUP', '1 TON');
+INSERT INTO transportes(placas, num_serie, marca_modelo, tipo, carga) VALUES ('PP7946B', '1FT7W2B68GED15801', 'FORD F250 SUPER DUTY/2016', 'PICKUP', '2 TON');
+INSERT INTO transportes(placas, num_serie, marca_modelo, tipo, carga) VALUES ('XE5265C', 'lGCNK9EC6JZ359955', 'GENERAL MOTORS/2O18', 'PICKUP', '2.5 TON');
+INSERT INTO transportes(placas, num_serie, marca_modelo, tipo, carga) VALUES ('6XX267A', '3E9BA1626GA031069', 'RC CRUZADO/2OI6', 'REMOLQUE', '800 KG');
+INSERT INTO transportes(placas, num_serie, marca_modelo, tipo, carga) VALUES ('3XB441A', '3T9L216Z0MT233012', 'TAOTSA/2021', 'REMOLQUE', '3 TON');
+INSERT INTO transportes(placas, num_serie, marca_modelo, tipo, carga) VALUES ('3XB440A', '3T9L216Z0MT233043', 'TAOTSA/2021', 'REMOLQUE', '3 TON');
+INSERT INTO transportes(placas, num_serie, marca_modelo, tipo, carga) VALUES ('3XB43BA', '3T9L216Z2MT233044', 'TAOTSA/2021', 'REMOLQUE', '3 TON');
+INSERT INTO transportes(placas, num_serie, marca_modelo, tipo, carga) VALUES ('4XB184A', '3T9X116Z3PT233014', 'TAOTSA/2023', 'REMOLQUE', '3 TON');
+INSERT INTO transportes(placas, num_serie, marca_modelo, tipo, carga) VALUES ('4XB193A', '3T9L216Z7NT233025', 'TAOTSA/2022', 'REMOLQUE', '3 TON');
+INSERT INTO transportes(placas, num_serie, marca_modelo, tipo, carga) VALUES ('6XB009A', '3T9L216Z5NT233024', 'TAOTSA/2022', 'REMOLQUE', '1 TON');
+INSERT INTO transportes(placas, num_serie, marca_modelo, tipo, carga) VALUES ('6XB028A', '3T9X116Z0PT233018', 'TAOTSA/2023', 'REMOLQUE', '3 TON');
+INSERT INTO transportes(placas, num_serie, marca_modelo, tipo, carga) VALUES ('6XB059A', '3T9L11619PT233026', 'TAOTSA/2023', 'REMOLQUE', '3 TON');
+INSERT INTO transportes(placas, num_serie, marca_modelo, tipo, carga) VALUES ('6XB075A', '3T8J11611PT233030', 'TAOTSA/2023', 'REMOLQUE', '3 TON');
+INSERT INTO transportes(placas, num_serie, marca_modelo, tipo, carga) VALUES ('5XDB55A', '0600095B8', 'DINA/1988', 'CHASIS CABINA', '15 TON');
+INSERT INTO transportes(placas, num_serie, marca_modelo, tipo, carga) VALUES ('XK2642A', 'B1317XMED15961', 'MERCEDES BENZ/1992', 'REDILAS', '10 TON');
+INSERT INTO transportes(placas, num_serie, marca_modelo, tipo, carga) VALUES ('WY4930B', '1XKDD89X5LJ553148', 'KENWORTH/1990', 'TORTON', '14 TON');
+INSERT INTO transportes(placas, num_serie, marca_modelo, tipo, carga) VALUES ('WY3266B', '3F9CA5C14CT022086', 'FENDER 3500/2012', 'TORTON', '14 TON');
+INSERT INTO transportes(placas, num_serie, marca_modelo, tipo, carga) VALUES ('XK2722B', 'JHHYES0F4RK005320', 'HINO/2024', 'CHASIS CABINA', '4.5 TON');
+INSERT INTO transportes(placas, num_serie, marca_modelo, tipo, carga) VALUES ('XJ1878B', '3WKMDZ9X86F308958', 'KENWORTH/2006', 'LINEA T', '28 TON');
+INSERT INTO transportes(placas, num_serie, marca_modelo, tipo, carga) VALUES ('XG8514A', '3N6AD35C8JK900794', 'NISSAN/2018', 'NP 300', '1000 KG');
+INSERT INTO transportes(placas, num_serie, marca_modelo, tipo, carga) VALUES ('PU2114B', '2HSCTAPR89C096875', 'INTERNATIONAL PROSTAR/2009', 'ROLL OFF', '24 TON');
+INSERT INTO transportes(placas, num_serie, marca_modelo, tipo, carga) VALUES ('YM5O38A', 'DF257VMEB06186', 'FAMSA INTERNACIONAL/1990', 'CHASIS CABINA', '1 TON');
+INSERT INTO transportes(placas, num_serie, marca_modelo, tipo, carga) VALUES ('NS5821C', '1XKAD79X8DJ35O482', 'KENWORTH/2013', 'TRACTO CAMION', '30 TON');
+
+INSERT INTO residuos(clave, residuos) VALUES ('RO-001', 'Otros residuos orgánicos (RSU de la industria)');
+INSERT INTO residuos(clave, residuos) VALUES ('RO-002', 'Papel y cartón');
+INSERT INTO residuos(clave, residuos) VALUES ('RO-003', 'Fibra Vegetal');
+INSERT INTO residuos(clave, residuos) VALUES ('RO-004', 'Madera');
+INSERT INTO residuos(clave, residuos) VALUES ('RO-005', 'Hueso');
+INSERT INTO residuos(clave, residuos) VALUES ('RO-006', 'Residuos de actividades agropecuarias');
+INSERT INTO residuos(clave, residuos) VALUES ('RO-007', 'Residuos alimenticios');
+INSERT INTO residuos(clave, residuos) VALUES ('RO-008', 'Cuero');
+INSERT INTO residuos(clave, residuos) VALUES ('RO-009', 'Celulosa');
+INSERT INTO residuos(clave, residuos) VALUES ('RO-010', 'Aceite vegetal comestible y/o grasas');
+INSERT INTO residuos(clave, residuos) VALUES ('RO-012', 'Lodos de plantas de tratamiento de aguas residuales (deshidratados)');
+INSERT INTO residuos(clave, residuos) VALUES ('RO-013', 'Lodos provenientes de procesos productivos o actividades diversas de manufactura, y/o provenientes del tratamiento de aguas industriales (deshidratados)');
+INSERT INTO residuos(clave, residuos) VALUES ('RO-014', 'Algodón');
+INSERT INTO residuos(clave, residuos) VALUES ('RO-015', 'Cenizas y sólidos carbonosos');
+INSERT INTO residuos(clave, residuos) VALUES ('RI-001', 'Otros residuos inorgánicos (Arena sílica, sólido terroso no ferroso, residuos generados en tiendas departamentales o centros comerciales en gran volumen)');
+INSERT INTO residuos(clave, residuos) VALUES ('RI-002', 'Envases multicapa');
+INSERT INTO residuos(clave, residuos) VALUES ('RI-003', 'Residuos generados en los servicios de transporte y actividades portuarias, aeroportuarias y ferroviarias (incluye llantas)');
+INSERT INTO residuos(clave, residuos) VALUES ('RI-004', 'Residuos de la construcción, mantenimiento y demolición');
+INSERT INTO residuos(clave, residuos) VALUES ('RI-005', 'Metal ferroso, limalla, colilla de soldadura, escoria, etc');
+INSERT INTO residuos(clave, residuos) VALUES ('RI-006', 'Metal no ferroso');
+INSERT INTO residuos(clave, residuos) VALUES ('RI-007', 'Fibras sintéticas (trapos y textiles)');
+INSERT INTO residuos(clave, residuos) VALUES ('RI-008', 'Vidrio');
+INSERT INTO residuos(clave, residuos) VALUES ('RI-009', 'Fibra de vidrio');
+INSERT INTO residuos(clave, residuos) VALUES ('RI-010', 'Envases plasticos');
+INSERT INTO residuos(clave, residuos) VALUES ('RI-011', 'Hule de embalaje');
+INSERT INTO residuos(clave, residuos) VALUES ('RI-012', 'Hule espuma (poliuretano)');
+INSERT INTO residuos(clave, residuos) VALUES ('RI-013', 'Unicel (poliestireno)');
+INSERT INTO residuos(clave, residuos) VALUES ('RI-015', 'Aluminio');
+INSERT INTO residuos(clave, residuos) VALUES ('RI-016', 'Residuos tecnológicos y/o electrónicos');
+INSERT INTO residuos(clave, residuos) VALUES ('RI-017', 'Residuos de vehículos automotores con características de manejo especial');
+INSERT INTO residuos(clave, residuos) VALUES ('RI-018', 'Lana mineral');
+INSERT INTO residuos(clave, residuos) VALUES ('RI-019', 'Ceramica y fibra ceramica');
+INSERT INTO residuos(clave, residuos) VALUES ('RI-020', 'Arcilla');
+INSERT INTO residuos(clave, residuos) VALUES ('RI-021', 'Carbón activado');
+INSERT INTO residuos(clave, residuos) VALUES ('RI-022', 'Ladrillo refractario');
