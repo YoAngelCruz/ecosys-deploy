@@ -43,7 +43,7 @@ services:
   excel:
     container_name: excel-service
     restart: always
-    image: yoangelcruz/excel-service:0.5
+    image: yoangelcruz/excel-service:0.6
     environment:
       - JAVA_OPTS=-Xms256M -Xmx256M -DDB_HOST=BD-Postgres:5432/ecosys -DDB_USERNAME=admin -DDB_PASSWORD=passoword
     depends_on:
@@ -52,7 +52,7 @@ services:
   ecosysfront:
     container_name: front-service
     restart: always
-    image: yoangelcruz/ecosys-front:3.2
+    image: yoangelcruz/ecosys-front:3.3
 
   proxy_nginx:
     container_name: proxy-nginx
